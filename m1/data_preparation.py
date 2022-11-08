@@ -29,6 +29,11 @@ def unique_g(list1):
 
 def prepare_data(all_movies):
 
+    # Fill NaN values with Unkown
+
+    all_movies['Cast'] = all_movies['Cast'].fillna('Unkown')
+
+
     # Convert Genres in a list of Genres
     # Example: [romantic drama] -> [romatic, drama] 
 
@@ -38,10 +43,11 @@ def prepare_data(all_movies):
         row = re.split(',|\s|/|\(|\)|\[|\]|;|-', row)
         genre_f.append(filter(lambda x: len(x) >= 3 and not x.isdigit() and not (x in words_to_remove), row))
         # print(row)
-    all_movies['Genre'] = genre_f
+    all_movies['Genre'] = list(genre_f)
+    
+    print(all_movies['Genre'])
     # print(unique_g(all_movies['Genre']))
     # print(len(unique_g(all_movies['Genre'])))
-
 
 
     # Remove Origin's movies with less than 10 movies
@@ -64,3 +70,4 @@ if __name__ == '__main__':
     # Load dataset
     all_movies = pd.read_csv('data/wiki_movie_plots_deduped.csv', sep=',')
     all_movies = prepare_data(all_movies)
+    # all_movies.to_csv('data/wiki_movie_plots.csv', sep=',')
