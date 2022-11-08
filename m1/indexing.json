@@ -1,0 +1,66 @@
+{
+	"add-field-type": [
+        {
+            "name":"text",
+            "class":"solr.TextField",
+            "indexAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"}
+                ]
+            }
+        }
+    ],
+    "add-field": [
+        {
+            "name": "Title",
+            "type": "text",
+            "indexed": true
+        },
+        {
+            "name": "Origin/Ethinicity",
+            "type": "text",
+            "indexed": true
+        },
+        {
+            "name": "Plot",
+            "type": "text",
+            "indexed": true
+        },
+        {
+            "name": "Release Year",
+            "class": "solr.TrieIntField",
+            "indexed": true
+        },
+        {
+            "name": "Genre",
+            "class": "text",
+            "multiValued": true, 
+            "indexed": true
+        },
+        {
+            "name": "Director",
+            "class": "text",
+            "multiValued": true, 
+            "indexed": true
+        },
+        {
+            "name": "Cast",
+            "class": "text",
+            "multiValued": true, 
+            "indexed": true
+        }
+    ]
+}
