@@ -71,4 +71,4 @@ if __name__ == '__main__':
     all_movies = pd.read_csv('data/wiki_movie_plots_deduped.csv', sep=',')
     all_movies = prepare_data(all_movies)
     # Store dataset
-    all_movies.to_csv('data/wiki_movie_plots.csv', sep=',')
+    all_movies.to_csv('../m2/data/wiki_movie_plots.csv', sep=',')

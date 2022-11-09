@@ -41,24 +41,24 @@
         },
         {
             "name": "Release Year",
-            "class": "solr.TrieIntField",
+            "type": "text",
             "indexed": true
         },
         {
             "name": "Genre",
-            "class": "text",
+            "type": "text",
             "multiValued": true, 
             "indexed": true
         },
         {
             "name": "Director",
-            "class": "text",
+            "type": "text",
             "multiValued": true, 
             "indexed": true
         },
         {
             "name": "Cast",
-            "class": "text",
+            "type": "text",
             "multiValued": true, 
             "indexed": true
         }
