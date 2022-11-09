@@ -38,9 +38,31 @@ def prepare_data(all_movies):
     # Example: [romantic drama] -> [romatic, drama] 
 
     genre_f = []
-    words_to_remove = ['age','ago','and','based','can','coming','das','day','from','given','into','not','semi','stop','the','time','true','with','years','yeh']
+    words_to_remove = ['about','age','ago','african','and', 'based','bond','bros.','can','chan','coming','com','crime.','das','day','direct','dwayne','early','fi','fiction','for','found','from','genre','given','human','into','james','johansson','johnson','loosely','made','munro.','name','name.','not','panorama','period','produced','production','productions','related','rights','road','same','scarllet','sci','semi','set','south','stop','studios','the','time','true','warner','with','years','yeh']
     for row in all_movies['Genre']:
         row = re.split(',|\s|/|\(|\)|\[|\]|;|-', row)
+
+        if 'crime.' in row:
+            row.append('crime')
+        if 'dwayne' in row:
+            row.append('dwayne johnson')
+        if 'humans' in row:
+            row.append('human rights')
+        if 'james' in row:
+            row.append('james bond')
+        if 'panorama' in row:
+            row.append('panorama studios')
+        if 'scarllet' in row:
+            row.append('scarllet johansson')
+        if 'sci' in row:
+            row.append('science fiction')
+        if 'science' in row:
+            row.append('science fiction')
+        if 'south' in row:
+            row.append('south african')
+        if 'warner' in row:
+            row.append('warner bros')
+
         genre_f.append(list(filter(lambda x: len(x) >= 3 and not x.isdigit() and not (x in words_to_remove), row)))
         # print(row)
     all_movies['Genre'] = genre_f
