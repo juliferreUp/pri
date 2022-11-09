@@ -21,6 +21,10 @@
                     {"class":"solr.LowerCaseFilterFactory"}
                 ]
             }
+        },
+        {
+            "name":"number",
+            "class":"solr.TrieIntField"
         }
     ],
     "add-field": [
@@ -41,7 +45,7 @@
         },
         {
             "name": "Release Year",
-            "type": "text",
+            "type": "number",
             "indexed": true
         },
         {
