@@ -38,28 +38,43 @@ def prepare_data(all_movies):
     # Example: [romantic drama] -> [romatic, drama] 
 
     genre_f = []
-    words_to_remove = ['about','age','ago','african','and', 'based','bond','bros.','can','chan','coming','com','crime.','das','day','direct','dwayne','early','fi','fiction','for','found','from','genre','given','human','into','james','johansson','johnson','loosely','made','munro.','name','name.','not','panorama','period','produced','production','productions','related','rights','road','same','scarllet','sci','semi','set','south','stop','studios','the','time','true','warner','with','years','yeh']
+    words_to_remove = ['about','age','ago','african','and', 'based','bond','bros.','can','chan','coming','com','comedey','crime.','das','day','direct','dwayne','early','family.','familya','fiction','for','found','from','genre','given','human','into','james','johansson','johnson','kung','loosely','made','munro.','name','name.','not','panorama','period','p.o.w.','produced','production','productions','related','rights','road','same','scarllet','sci','semi','set','south','stop','studios','the','thriler','time','triller','true','ttriller','warner','with','years','yeh']
     for row in all_movies['Genre']:
         row = re.split(',|\s|/|\(|\)|\[|\]|;|-', row)
 
+        # if ('science' in row) and not ('fiction' in row):
+        #     print(row)
+
+        if 'comedey' in row:
+            row.append('comedy')
         if 'crime.' in row:
             row.append('crime')
         if 'dwayne' in row:
             row.append('dwayne johnson')
+        if ('family.' in row) or ('familya' in row):
+            row.append('family')
+        if 'fi' in row:
+            row.append('science fiction')
+        if 'fiction' in row:
+            row.append('science fiction')
+            if 'science' in row:
+                row.remove('science')
         if 'humans' in row:
             row.append('human rights')
         if 'james' in row:
             row.append('james bond')
+        if 'kung' in row:
+            row.append('kung fu')
         if 'panorama' in row:
             row.append('panorama studios')
+        if 'p.o.w.' in row:
+            row.append('pow')
         if 'scarllet' in row:
             row.append('scarllet johansson')
-        if 'sci' in row:
-            row.append('science fiction')
-        if 'science' in row:
-            row.append('science fiction')
         if 'south' in row:
             row.append('south african')
+        if ('ttriller' in row) or ('triller' in row) or ('thriler' in row):
+            row.append('thriller')
         if 'warner' in row:
             row.append('warner bros')
 
