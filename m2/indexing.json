@@ -1,7 +1,7 @@
 {
 	"add-field-type": [
         {
-            "name":"text",
+            "name":"simple_text",
             "class":"solr.TextField",
             "indexAnalyzer":{
                 "tokenizer":{
@@ -24,23 +24,23 @@
         },
         {
             "name":"number",
-            "class":"solr.TrieIntField"
+            "class":"solr.IntPointField"
         }
     ],
     "add-field": [
         {
             "name": "Title",
-            "type": "text",
+            "type": "simple_text",
             "indexed": true
         },
         {
             "name": "Origin/Ethinicity",
-            "type": "text",
+            "type": "simple_text",
             "indexed": true
         },
         {
             "name": "Plot",
-            "type": "text",
+            "type": "simple_text",
             "indexed": true
         },
         {
@@ -50,19 +50,19 @@
         },
         {
             "name": "Genre",
-            "type": "text",
+            "type": "simple_text",
             "multiValued": true, 
             "indexed": true
         },
         {
             "name": "Director",
-            "type": "text",
+            "type": "simple_text",
             "multiValued": true, 
             "indexed": true
         },
         {
             "name": "Cast",
-            "type": "text",
+            "type": "simple_text",
             "multiValued": true, 
             "indexed": true
         }
