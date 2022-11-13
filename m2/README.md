@@ -1,16 +1,17 @@
 # QUERIES
 
 **Query 1:**
-  Drama movies with american origin in the XXI century
+  Drama movies with bollywood origin released in 2015 or after - 29 movies found
+  -- Correct ones will be the ones that only have drama as gender
   
 **Query 2:**
-  Movies starring Robert de Niro and Al Pacino
+  Movies starring Robert de Niro and are from italian mafia - 10 movies found
   
 **Query 3:**
-  Thriller movies directed by David Fincher
+  Movies directed by Steven Spielberg about murder - 19 movies found
   
 **Query 4:**
-  Police movies from the range of years 2000-2005
+  Police action movies from the year 2000 - 15 movies found
 
 ---
 
