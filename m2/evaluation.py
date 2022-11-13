@@ -6,10 +6,9 @@ import json
 import requests
 import pandas as pd
 
-# data/evaluation/queryX.txt
-QRELS_FILE = ''
-# url query of solr
-QUERY_URL = ''
+
+QRELS_FILE = 'query4_boost.txt'     # data/evaluation/queryX.txt
+QUERY_URL = 'http://localhost:8983/solr/core/select?defType=edismax&indent=true&q.op=OR&q=Plot%3Apolice%20%26%26%20Genre%3Aaction%20%26%26%20Release_Year%3A2000&qf=Plot%5E4%20Genre%5E3%20Release_Year&rows=15'      # url of solr query
 
 # Read qrels to extract relevant documents
 relevant = list(map(lambda el: el.strip(), open(QRELS_FILE).readlines()))
