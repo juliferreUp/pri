@@ -1,11 +1,11 @@
 # QUERIES
 
 **Query 1:**
-  Drama movies with bollywood origin released in 2015 or after - 29 movies found
+  Drama movies with Bollywood origin released in 2015 or after - 29 movies found
   <!-- Correct ones will be the ones that only have drama as gender -->
   
 **Query 2:**
-  Movies starring Robert de Niro and are from italian mafia - 10 movies found
+  Movies starring Robert de Niro and are from the Italian mafia - 10 movies found
   
 **Query 3:**
   Movies directed by Steven Spielberg about murder - 19 movies found
