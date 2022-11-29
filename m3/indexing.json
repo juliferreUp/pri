@@ -1,0 +1,150 @@
+{
+	"add-field-type": [
+        {
+            "name":"char_text",
+            "class":"solr.TextField",
+            "indexAnalyzer":{
+                "charFilter":{
+                    "class":"solr.MappingCharFilterFactory", "mapping":"mapping_accents.txt"
+                },
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"}
+                ]
+            }
+        },
+        {
+            "name":"number",
+            "class":"solr.IntPointField"
+        },
+        {
+            "name":"porter_text",
+            "class":"solr.TextField",
+            "indexAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.PorterStemFilterFactory"}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.PorterStemFilterFactory"}
+                ]
+            }
+        },
+        {
+            "name":"synonym_text",
+            "class":"solr.TextField",
+            "indexAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.PorterStemFilterFactory"}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.SynonymGraphFilterFactory", "synonyms":"synonyms.txt"},
+                    {"class":"solr.PorterStemFilterFactory"}
+                ]
+            }
+        },
+        {
+            "name":"plot_text",
+            "class":"solr.TextField",
+            "indexAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.PorterStemFilterFactory"}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"},
+                    {"class":"solr.SynonymGraphFilterFactory", "synonyms":"synonyms.txt"},
+                    {"class":"solr.PorterStemFilterFactory"},
+                    {"class":"solr.EnglishPossessiveFilterFactory"},
+                    {"class":"solr.HyphenatedWordsFilterFactory"},
+                    {"class": "solr.StopFilterFactory", "ignoreCase": true}
+                ]
+            }
+        }
+    ],
+    "add-field": [
+        {
+            "name": "Title",
+            "type": "synonym_text",
+            "indexed": true
+        },
+        {
+            "name": "Origin/Ethinicity",
+            "type": "porter_text",
+            "indexed": true
+        },
+        {
+            "name": "Plot",
+            "type": "plot_text",
+            "indexed": true
+        },
+        {
+            "name": "Release Year",
+            "type": "number",
+            "indexed": true
+        },
+        {
+            "name": "Genre",
+            "type": "synonym_text",
+            "multiValued": true, 
+            "indexed": true
+        },
+        {
+            "name": "Director",
+            "type": "char_text",
+            "multiValued": true, 
+            "indexed": true
+        },
+        {
+            "name": "Cast",
+            "type": "char_text",
+            "multiValued": true, 
+            "indexed": true
+        }
+    ]
+}
