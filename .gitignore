@@ -1,4 +1,6 @@
 m3/data/dataNames.tsv
 m3/data/dataRating.tsv
+m3/data/imdbDatasets/dataNames.tsv
+m3/data/imdbDatasets/dataRating.tsv
 m3/data/wiki_movie_plots.csv
 m3/data/wiki_movie_final.csv

@@ -26,10 +26,6 @@
             }
         },
         {
-            "name":"number",
-            "class":"solr.IntPointField"
-        },
-        {
             "name":"porter_text",
             "class":"solr.TextField",
             "indexAnalyzer":{
@@ -125,7 +121,7 @@
         },
         {
             "name": "Release Year",
-            "type": "number",
+            "type": "pint",
             "indexed": true
         },
         {
@@ -144,6 +140,11 @@
             "name": "Cast",
             "type": "char_text",
             "multiValued": true, 
+            "indexed": true
+        },
+        {
+            "name": "averageRating",
+            "type": "pfloat",
             "indexed": true
         }
     ]

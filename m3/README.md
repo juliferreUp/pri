@@ -10,7 +10,7 @@
 
 ## How to run
 1. Open terminal 
-2. $ `cd m2`
+2. $ `cd m3`
 3. $ `docker build . -t pri_solr && docker run --rm -it -p 8983:8983 pri_solr`
 4. Open new terminal
 5. $ `bash collection.sh`
