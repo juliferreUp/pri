@@ -1,0 +1,8 @@
+{
+    "add-requesthandler": {
+        "name": "/myterms",
+        "class": "solr.SearchHandler",
+        "defaults": {"terms": true, "distrib":false},
+        "components": ["terms"]
+    }
+}
