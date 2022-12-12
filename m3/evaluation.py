@@ -95,4 +95,4 @@ for idx, step in enumerate(recall_values):
 
 disp = PrecisionRecallDisplay([precision_recall_match.get(r) for r in recall_values], recall_values)
 disp.plot()
-plt.savefig('data/evaluation/precision_recall.pdf')
+plt.savefig('data/evaluation/precision_recall.png')
