@@ -1,14 +1,11 @@
-<searchComponent name="suggest" class="solr.SuggestComponent">
-  <lst name="suggester">
-    <str name="name">mySuggester</str>
-    <!-- Look at this field -->
-    <str name="lookupImpl">AnalyzingLookupFactory</str>
-    <!-- <str name="lookupImpl">JaspellLookupFactory</str> -->
-
-    <str name="dictionaryImpl">DocumentDictionaryFactory</str>
-    <str name="field">Genre</str>
-    <str name="weightField">averageRating</str>
-    <str name="suggestAnalyzerFieldType">string</str>
-    <str name="buildOnStartup">false</str>
+<requestHandler name="/mlt" class="solr.SearchHandler" startup="lazy">    
+  <lst name="defaults">
+    <str name="mlt">true</str>
+    <str name="mlt.fl">Title,Director,Cast,Genre,Plot</str>
+    <str name="mlt.mintf">1</str>
+    <str name="mlt.mindf">5</str>
+    <str name="mlt.minwl">3</str>
+    <str name="mlt.maxdfpct">20</str>
+    <str name="mlt.qf">Title^6 Director^2 Cast^1 Genre^2 Plot^1</str>
   </lst>
-</searchComponent>
+</requestHandler>

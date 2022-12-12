@@ -18,31 +18,9 @@
 
 
 ## Change the solrconf.xml
-1. Open container bash
-2. Change solrconf.xml
-
-<searchComponent name="suggest" class="solr.SuggestComponent">
-  <lst name="suggester">
-    <str name="name">mySuggester</str>
-    <!-- Look at this field -->
-    <str name="lookupImpl">AnalyzingLookupFactory</str>
-    <!-- <str name="lookupImpl">JaspellLookupFactory</str> -->
-
-    <str name="dictionaryImpl">DocumentDictionaryFactory</str>
-    <str name="field">Genre</str>
-    <str name="weightField">averageRating</str>
-    <str name="suggestAnalyzerFieldType">string</str>
-    <str name="buildOnStartup">false</str>
-  </lst>
-</searchComponent>
-<requestHandler name="/suggest" class="solr.SearchHandler" startup="lazy">    
-    <lst name="defaults">
-      <str name="terms">true</str>
-      <str name="distrib">false</str>
-    </lst>
-    <arr name="components">
-      <str>suggest</str>
-    </arr>
-  </requestHandler>
-
-3. Reload Solr in interface 
+1. Open container bash > $`docker exec -u 0 -it <mycontainer> bash`
+2. $`cd ../../var/solr/data/core/conf`
+3. $`apt-get update && apt-get install nano`
+4. $`nano solrconfig.xml`
+2. Update solrconf.xml with [this](solrconfig.xml)
+3. Reload Solr in interface (Core Admin > Reload)
