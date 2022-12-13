@@ -1,4 +1,5 @@
 << Copyright (c) 2016 Hanson Robotics, Ltd. >>
+police, policeman, robbery, mug, thief, cop, detective
 existence,being,entity,ens,esse,subsistence
 reality,actuality,positiveness,fact,existence
 essence,principle
